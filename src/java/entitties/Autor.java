@@ -9,6 +9,7 @@ package entitties;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -106,5 +107,45 @@ public class Autor implements Serializable{
     public void setLibros(List<Libro> libros) {
         this.libros = libros;
     }  
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 47 * hash + Objects.hashCode(this.id_autor);
+        hash = 47 * hash + Objects.hashCode(this.first_name);
+        hash = 47 * hash + Objects.hashCode(this.last_name);
+        hash = 47 * hash + Objects.hashCode(this.birthdate);
+        hash = 47 * hash + Objects.hashCode(this.deathdate);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Autor other = (Autor) obj;
+        if (!Objects.equals(this.id_autor, other.id_autor)) {
+            return false;
+        }
+        if (!Objects.equals(this.first_name, other.first_name)) {
+            return false;
+        }
+        if (!Objects.equals(this.last_name, other.last_name)) {
+            return false;
+        }
+        if (!Objects.equals(this.birthdate, other.birthdate)) {
+            return false;
+        }
+        return Objects.equals(this.deathdate, other.deathdate);
+    }
+
+    @Override
+    public String toString() {
+        return "Autor{" + "id_autor=" + id_autor + ", first_name=" + first_name + ", last_name=" + last_name + ", birthdate=" + birthdate + ", deathdate=" + deathdate + ", libros=" + libros + '}';
+    }    
     
 }

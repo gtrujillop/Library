@@ -7,10 +7,12 @@
 package entitties;
 
 import java.util.Date;
+import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
 
 /**
  *
@@ -26,6 +28,7 @@ public class Edicion {
     @Column(name="num_copias")
     private Integer num_copias;
     @Column(name="anno")
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date anno;
     @Column(name="paginas")
     private Integer paginas;
@@ -80,6 +83,45 @@ public class Edicion {
     public void setPaginas(Integer paginas) {
         this.paginas = paginas;
     }
-    
-    
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 53 * hash + Objects.hashCode(this.id_edicion);
+        hash = 53 * hash + Objects.hashCode(this.isbn);
+        hash = 53 * hash + Objects.hashCode(this.num_copias);
+        hash = 53 * hash + Objects.hashCode(this.anno);
+        hash = 53 * hash + Objects.hashCode(this.paginas);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Edicion other = (Edicion) obj;
+        if (!Objects.equals(this.id_edicion, other.id_edicion)) {
+            return false;
+        }
+        if (!Objects.equals(this.isbn, other.isbn)) {
+            return false;
+        }
+        if (!Objects.equals(this.num_copias, other.num_copias)) {
+            return false;
+        }
+        if (!Objects.equals(this.anno, other.anno)) {
+            return false;
+        }
+        return Objects.equals(this.paginas, other.paginas);
+    }
+
+    @Override
+    public String toString() {
+        return "Edicion{" + "id_edicion=" + id_edicion + ", isbn=" + isbn + ", num_copias=" + num_copias + ", anno=" + anno + ", paginas=" + paginas + '}';
+    }
+       
 }

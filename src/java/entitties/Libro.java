@@ -8,6 +8,7 @@ package entitties;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Objects;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -61,6 +62,31 @@ public class Libro implements Serializable{
     public void setAutores(List<Autor> autores) {
         this.autores = autores;
     }
-    
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Libro other = (Libro) obj;
+        if (!Objects.equals(this.id_libro, other.id_libro)) {
+            return false;
+        }
+        return Objects.equals(this.nombre_libro, other.nombre_libro);
+    }
+
+    @Override
+    public String toString() {
+        return "Libro{" + "id_libro=" + id_libro + ", nombre_libro=" + nombre_libro + '}';
+    }
     
 }
