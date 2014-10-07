@@ -8,9 +8,15 @@ package entitties;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumns;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Temporal;
 
 /**
@@ -31,6 +37,12 @@ public class Autor implements Serializable{
     @Column
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date deathdate;
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "publicaciones",
+                joinColumns ={@JoinColumn(name = "id_autor")},
+                inverseJoinColumns = {@JoinColumn(name = "id_libro")}
+    )
+    private List<Libro> libros;
     
     public Autor(){
         
@@ -84,7 +96,13 @@ public class Autor implements Serializable{
     public void setDeathdate(Date deathdate) {
         this.deathdate = deathdate;
     }
-    
-    
+
+    public List<Libro> getLibros() {
+        return libros;
+    }
+
+    public void setLibros(List<Libro> libros) {
+        this.libros = libros;
+    }  
     
 }
