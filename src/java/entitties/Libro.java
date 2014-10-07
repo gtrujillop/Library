@@ -13,12 +13,14 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 
 /**
  *
  * @author Gaston Trujillo
  */
-@Entity(name="libros")
+@Entity
+@Table(name="libros")
 public class Libro implements Serializable{
     @Id
     private Long id_libro;

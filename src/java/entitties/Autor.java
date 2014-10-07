@@ -17,13 +17,15 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinColumns;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 
 /**
  *
  * @author Gaston Trujillo
  */
-@Entity(name="autores")
+@Entity
+@Table(name="autores")
 public class Autor implements Serializable{
     @Id
     private Long id_autor;
