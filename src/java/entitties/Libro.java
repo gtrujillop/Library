@@ -12,8 +12,10 @@ import java.util.Objects;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -29,6 +31,8 @@ public class Libro implements Serializable{
     private String nombre_libro;
     @ManyToMany(mappedBy = "libros", cascade = CascadeType.ALL)
     private List<Autor> autores;
+    @OneToMany(mappedBy = "libros", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<Edicion> ediciones;
    
     public Libro(){
        
@@ -62,6 +66,16 @@ public class Libro implements Serializable{
     public void setAutores(List<Autor> autores) {
         this.autores = autores;
     }
+
+    public List<Edicion> getEdiciones() {
+        return ediciones;
+    }
+
+    public void setEdiciones(List<Edicion> ediciones) {
+        this.ediciones = ediciones;
+    }
+    
+    
 
     @Override
     public int hashCode() {

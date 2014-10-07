@@ -8,9 +8,13 @@ package entitties;
 
 import java.util.Date;
 import java.util.Objects;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 
@@ -23,15 +27,19 @@ import javax.persistence.Temporal;
 public class Edicion {
     @Id
     private Long id_edicion;
-    @Column(name="isbn")
+    @Column(name = "isbn")
     private String isbn;
-    @Column(name="num_copias")
+    @Column(name = "num_copias")
     private Integer num_copias;
-    @Column(name="anno")
+    @Column(name = "anno")
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date anno;
-    @Column(name="paginas")
+    @Column(name = "paginas")
     private Integer paginas;
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_libro")
+    
+    private Libro libro;
 
     public Edicion() {
     }
@@ -83,6 +91,16 @@ public class Edicion {
     public void setPaginas(Integer paginas) {
         this.paginas = paginas;
     }
+
+    public Libro getLibro() {
+        return libro;
+    }
+
+    public void setLibro(Libro libro) {
+        this.libro = libro;
+    }
+    
+    
 
     @Override
     public int hashCode() {
