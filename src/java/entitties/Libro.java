@@ -15,7 +15,7 @@ import javax.persistence.Id;
  *
  * @author Gaston Trujillo
  */
-@Entity
+@Entity(name="libros")
 public class Libro implements Serializable{
     @Id
     private Long id_libro;

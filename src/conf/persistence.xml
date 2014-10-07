@@ -4,9 +4,11 @@
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <jta-data-source>libraryJNDI</jta-data-source>
     <class>entitties.Libro</class>
+    <class>entitties.Autor</class>
     <exclude-unlisted-classes>true</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
+      <property name="eclipselink.logging.level" value="ON"/>
     </properties>
   </persistence-unit>
 </persistence>

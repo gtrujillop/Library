@@ -17,7 +17,7 @@ import javax.persistence.Temporal;
  *
  * @author Gaston Trujillo
  */
-@Entity
+@Entity(name="autores")
 public class Autor implements Serializable{
     @Id
     private Long id_autor;
