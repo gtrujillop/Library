@@ -13,6 +13,8 @@ import java.util.Objects;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import static javax.persistence.GenerationType.TABLE;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinColumns;
@@ -29,6 +31,7 @@ import javax.persistence.Temporal;
 @Table(name="autores")
 public class Autor implements Serializable{
     @Id
+    @GeneratedValue(strategy=TABLE, generator="TAB_GEN")
     private Long id_autor;
     @Column
     private String first_name;

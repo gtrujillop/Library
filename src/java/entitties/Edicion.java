@@ -7,14 +7,18 @@
 package entitties;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import static javax.persistence.GenerationType.TABLE;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 
@@ -26,6 +30,7 @@ import javax.persistence.Temporal;
 @Table(name = "ediciones")
 public class Edicion {
     @Id
+    @GeneratedValue(strategy=TABLE, generator="TAB_GEN")
     private Long id_edicion;
     @Column(name = "isbn")
     private String isbn;
@@ -37,9 +42,11 @@ public class Edicion {
     @Column(name = "paginas")
     private Integer paginas;
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_libro")
-    
+    @JoinColumn(name = "id_libro") 
     private Libro libro;
+    @OneToMany(mappedBy = "copias", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Copia> copias;
+
 
     public Edicion() {
     }
@@ -99,9 +106,15 @@ public class Edicion {
     public void setLibro(Libro libro) {
         this.libro = libro;
     }
-    
-    
 
+    public List<Copia> getCopias() {
+        return copias;
+    }
+
+    public void setCopias(List<Copia> copias) {
+        this.copias = copias;
+    }
+   
     @Override
     public int hashCode() {
         int hash = 5;

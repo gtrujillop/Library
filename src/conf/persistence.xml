@@ -6,6 +6,7 @@
     <class>entitties.Libro</class>
     <class>entitties.Autor</class>
     <class>entitties.Usuario</class>
+    <class>entitties.Edicion</class>
     <exclude-unlisted-classes>true</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>

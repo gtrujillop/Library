@@ -13,6 +13,8 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import static javax.persistence.GenerationType.TABLE;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
@@ -26,6 +28,7 @@ import javax.persistence.Table;
 @Table(name="libros")
 public class Libro implements Serializable{
     @Id
+    @GeneratedValue(strategy=TABLE, generator="TAB_GEN")
     private Long id_libro;
     @Column(name= "nombre_libro") 
     private String nombre_libro;
