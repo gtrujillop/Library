@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package entitties;
+package Entities;
 
 import java.util.Date;
 import java.util.List;

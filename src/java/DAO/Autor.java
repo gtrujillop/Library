@@ -4,18 +4,12 @@
  * and open the template in the editor.
  */
 
-package entitties;
-
-import java.io.Serializable;
-import javax.persistence.Embeddable;
+package DAO;
 
 /**
  *
  * @author Gaston Trujillo
  */
-@Embeddable
-public class CopyId implements Serializable {
-    public Long id_copia;
-    public Long id_edicion;
+class Autor {
     
 }

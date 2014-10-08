@@ -3,10 +3,11 @@
   <persistence-unit name="BibliotecaPU" transaction-type="JTA">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <jta-data-source>libraryJNDI</jta-data-source>
-    <class>entitties.Libro</class>
-    <class>entitties.Autor</class>
-    <class>entitties.Usuario</class>
-    <class>entitties.Edicion</class>
+    <class>Entities.Edicion</class>
+    <class>Entities.Autor</class>
+    <class>Entities.Usuario</class>
+    <class>Entities.Copia</class>
+    <class>Entities.Libro</class>
     <exclude-unlisted-classes>true</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>

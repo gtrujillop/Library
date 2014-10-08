@@ -4,15 +4,18 @@
  * and open the template in the editor.
  */
 
-package entitties;
+package Entities;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Objects;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.TABLE;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 /**
@@ -33,10 +36,12 @@ public class Usuario implements Serializable {
     private String first_name;
     @Column(name="last_name")
     private String last_name;
-    @Column(name="email")
+    @Column(name="email", unique = true)
     private String email;
-    @Column(name="telefono")
+    @Column(name="telefono", unique = true)
     private String telefono;
+    @ManyToMany(mappedBy = "usuarios", cascade = CascadeType.ALL)
+    private List<Copia> copias;
 
     public Usuario(Long id_usuario, Long codigo, String password, String first_name, String last_name, String email, String telefono) {
         this.id_usuario = id_usuario;
@@ -107,6 +112,16 @@ public class Usuario implements Serializable {
     public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
+
+    public List<Copia> getCopias() {
+        return copias;
+    }
+
+    public void setCopias(List<Copia> copias) {
+        this.copias = copias;
+    }
+    
+    
 
     @Override
     public int hashCode() {

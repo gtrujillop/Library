@@ -4,16 +4,18 @@
  * and open the template in the editor.
  */
 
-package entitties;
+package Entities;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Objects;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -32,6 +34,8 @@ public class Copia implements Serializable{
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_edicion", nullable = false, referencedColumnName = "id_edicion")
     private Edicion edicion;
+    @ManyToMany(mappedBy = "copias", cascade = CascadeType.ALL)
+    private List<Usuario> usuarios;
 
     public Copia() {
     }
@@ -72,6 +76,14 @@ public class Copia implements Serializable{
 
     public void setEdicion(Edicion edicion) {
         this.edicion = edicion;
+    }
+
+    public List<Usuario> getUsuarios() {
+        return usuarios;
+    }
+
+    public void setUsuarios(List<Usuario> usuarios) {
+        this.usuarios = usuarios;
     }
     
     @Override
