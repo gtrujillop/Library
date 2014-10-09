@@ -13,12 +13,12 @@ import java.util.List;
  *
  * @author Gaston Trujillo
  */
-public interface CopiaDAO {
+public interface CopiaDAO extends GenericDAO<Copia> {
     
-    public List<Copia> getAllCopias();
+    /*public List<Copia> getAllCopias();
     public Copia getCopia();
     public void updateCopia(Copia edicion);
     public void deleteCopia(Copia edicion);
-    public void insertCopia(Copia edicion);
+    public void insertCopia(Copia edicion);*/
     
 }

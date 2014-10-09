@@ -4,21 +4,23 @@
  * and open the template in the editor.
  */
 
-package DaoImplements;
+package Services;
 
-import DAO.AutorDAO;
-import DAO.JpaDAO;
 import Entities.Autor;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
  *
  * @author Gaston Trujillo
  */
-
-public class AutorDAOImpl extends JpaDAO<Autor> implements AutorDAO {
+public interface AutorService {
     
-  
-    
+    public List<Autor> findAll();
+ 
+    public void create(Autor autor);
+ 
+    public Autor findById(Long id);
+ 
+    public void update(Autor autor);
+         
 }

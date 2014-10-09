@@ -13,12 +13,12 @@ import java.util.List;
  *
  * @author Gaston Trujillo
  */
-public interface UsuarioDAO {
+public interface UsuarioDAO extends GenericDAO<Usuario> {
     
-    public List<Usuario> getAllUsuarios();
+   /* public List<Usuario> getAllUsuarios();
     public Usuario getUsuarios();
     public void updateUsuario(Usuario usuario);
     public void deleteUsuario(Usuario usuario);
-    public void insertUsuario(Usuario usuario);
+    public void insertUsuario(Usuario usuario);*/
     
 }

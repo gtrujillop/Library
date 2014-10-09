@@ -6,10 +6,14 @@
 
 package DaoImplements;
 
+import DAO.JpaDAO;
+import DAO.LibroDAO;
+import Entities.Libro;
+
 /**
  *
  * @author Gaston Trujillo
  */
-public class LibroDAOImpl {
+public class LibroDAOImpl extends JpaDAO<Libro> implements LibroDAO{
     
 }

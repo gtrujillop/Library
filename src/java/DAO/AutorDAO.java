@@ -6,19 +6,20 @@
 
 package DAO;
 
-import java.util.List;
 import Entities.Autor;
 
 /**
  *
  * @author Gaston Trujillo
  */
-public interface AutorDAO {
+public interface AutorDAO extends GenericDAO<Autor>{
     
-    public List<Autor> getAllAuthors();
+ /* public List<Autor> getAllAuthors();
     public Autor getAuthor();
     public void updateAutor(Autor autor);
     public void deleteAutor(Autor autor);
-    public void insertAutor(Autor autor);
+    public void insertAutor(Autor autor); */
+  
+    //Add methods for each Entity
     
 }

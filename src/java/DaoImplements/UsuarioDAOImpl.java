@@ -6,10 +6,14 @@
 
 package DaoImplements;
 
+import DAO.JpaDAO;
+import DAO.UsuarioDAO;
+import Entities.Usuario;
+
 /**
  *
  * @author Gaston Trujillo
  */
-public class UsuarioDAOImpl {
+public class UsuarioDAOImpl extends JpaDAO<Usuario> implements UsuarioDAO{
     
 }

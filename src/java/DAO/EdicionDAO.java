@@ -13,12 +13,12 @@ import java.util.List;
  *
  * @author Gaston Trujillo
  */
-public interface EdicionDAO {
+public interface EdicionDAO extends GenericDAO<Edicion> {
     
-    public List<Edicion> getAllEdiciones();
+    /*public List<Edicion> getAllEdiciones();
     public Edicion getEdicion();
     public void updateEdicion(Edicion edicion);
     public void deleteEdicion(Edicion edicion);
-    public void insertEdicion(Edicion edicion);
+    public void insertEdicion(Edicion edicion);*/
     
 }

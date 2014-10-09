@@ -13,12 +13,12 @@ import java.util.List;
  *
  * @author Gaston Trujillo
  */
-public interface LibroDAO {
+public interface LibroDAO extends GenericDAO<Libro> {
     
-    public List<Libro> getAllLibros();
+   /* public List<Libro> getAllLibros();
     public Libro getLibro();
     public void updateLibro(Libro libro);
     public void deleteLibro(Libro libro);
-    public void insertLibro(Libro libro);
+    public void insertLibro(Libro libro); */
     
 }
